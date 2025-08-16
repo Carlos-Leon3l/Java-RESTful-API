@@ -23,9 +23,15 @@ dependencies {
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9'
 		
 	runtimeOnly 'com.h2database:h2'
-	runtimeOnly 'org.postgresql:postgresql'
+	runtimeOnly 'org.postgresql:postgresql:42.2.5'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.jar {
+	manifest {
+		attributes["Main.class"] = "me.project.ApiRestSpringApplication"
+	}
 }
 
 tasks.named('test') {
